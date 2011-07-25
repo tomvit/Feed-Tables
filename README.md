@@ -1,19 +1,20 @@
 # Feed Tables
 
-Feed tables is a parser for Google Spreadsheets data that is in a form of a talbe.
-Such spreadsheet has field names in the first row and field values in the remaining
-rows of the table.
-
-## How to Install
-
-    npm install feed-tables
+Feed tables provides parsers for Google Spreadsheets data that is in a form of a talbe in cells feed or list feed formats.
+Feed tables works for both Node.js and a client-side JavaScript. 
 
 ## Spreadsheet data
 
 You must have a Google spreadsheet ready. For example, a spreadsheet at
 ... contains data about people such as a name, street, city. 
 
-## How to use (Node.js)
+## Usage in Node.js
+
+### Installation
+
+    npm install feed-tables
+
+### How to use 
 
 First, you need to load the data from the spreadsheet. In Node.js, you can use
 http and url libraries and the following `receive` function:
@@ -60,7 +61,7 @@ var receive = function(dataUrl, dataReady) {
 
 You can use either `CellsFeed` or `ListFeed` parser to parse the data. This depends on the format
 of the spreadsheet you want to use. Cells feeds are larger as every spreadsheet cell data 
-is in a separated atom feed entry. The `CellsFeed` parser expects that there are names of fields 
+is in a separated atom feed entry. The `CellsFeed` parser expects that there are names of header fields 
 in the first row of the spreadsheet. 
 
 The following code shows how to use the `CellsFeed` parser.
@@ -83,7 +84,11 @@ receive("http://spreadsheets.google.com/...",
     });
 ```
 
-TODO `ListFeed` parser
+List feeds are much smaller in size as every atom feed entry contains a single row, however, this format
+does not contain a row with all the table's header field names.  
+
+
+`ListFeed` parser
 
 
 
