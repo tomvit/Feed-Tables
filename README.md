@@ -3,7 +3,7 @@
 Feed tables provides parsers for Google Spreadsheets data that is in a form of a talbe in cells feed or list feed formats.
 Feed tables works for both Node.js and a client-side JavaScript. 
 
-## Spreadsheet data
+### Spreadsheet data
 
 You must have a Google spreadsheet ready. For example, a spreadsheet at
 ... contains data about people such as a name, street, city. 
@@ -14,7 +14,7 @@ You must have a Google spreadsheet ready. For example, a spreadsheet at
 
     npm install feed-tables
 
-### How to use 
+### Loading the data 
 
 First, you need to load the data from the spreadsheet. In Node.js, you can use
 http and url libraries and the following `receive` function:
@@ -59,6 +59,8 @@ var receive = function(dataUrl, dataReady) {
 };
 ```
 
+### Parse the data
+
 You can use either `CellsFeed` or `ListFeed` parser to parse the data. This depends on the format
 of the spreadsheet you want to use. Cells feeds are larger as every spreadsheet cell data 
 is in a separated atom feed entry. The `CellsFeed` parser expects that there are names of header fields 
@@ -72,9 +74,7 @@ var ft = require('feed-tables');
 receive("http://spreadsheets.google.com/...",
  function(data) {
         if (data) {
-            var table = new ft.CellsFeed(data);
-            
-            // you can know access the data
+            var table = new ft.CellsFeed(data);            
             for (var r = 0; r < table.length; r++) {
                 var row = table.getRow(i);
                 conlose.log("name: " + row.name + ", street: " + row.street, " city: " + row.city + "\n");
@@ -85,12 +85,50 @@ receive("http://spreadsheets.google.com/...",
 ```
 
 List feeds are much smaller in size as every atom feed entry contains a single row, however, this format
-does not contain a row with all the table's header field names.  
+does not contain a row with all the table's header field names, hence you need to provide 
+the head field names expicitly when creating the parser.
 
+```js
+var ft = require('feed-tables');
 
-`ListFeed` parser
+receive("http://spreadsheets.google.com/...",
+ function(data) {
+        if (data) {
+            var table = new ft.ListFeed(data, ["name", "street", "city"]);            
+            for (var r = 0; r < table.length; r++) {
+                var row = table.getRow(i);
+                conlose.log("name: " + row.name + ", street: " + row.street, " city: " + row.city + "\n");
+            }
+        } else
+            console.log("Timeout while fetching the Google Spreadsheet data.");
+    });
+```
+## Usage in a browser
 
+In a browser you can load the data either by using XMLHttpRequest or JSONP. Google spreadsheets
+supports both options including Cross-Origin Resource Sharing if you use XHR. Following code
+shows how to load the data using JSONP for which you need to add `callback` parameter at the end of 
+the spreadsheet url. 
 
+```js
+var URL = "&callback=dataReady";
+
+function loadData() {
+    var scp = document.createElement('script');
+	scp.setAttribute("type","text/javascript");
+	scp.setAttribute("src", URL);	
+	document.getElementsByTagName("head")[0].appendChild(scp);	
+}
+
+function dataReady(data) {
+    var table = ListFeed(data, ["name", "street", "city"]);
+    for (var r = 0; r < table.length; r++) {
+        var row = table.getRow(i);
+        // access data here row.name, row.street, row.city
+        // add them to your HTML code
+    }
+}
+```
 
 ## License 
 
