@@ -80,7 +80,7 @@ The following code shows how to use the `CellsFeed` parser.
 ```js
 var ft = require('feed-tables');
 
-receive("http://spreadsheets.google.com/...",
+receive("https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json",
  function(data) {
         if (data) {
             var table = new ft.CellsFeed(data);            
@@ -97,7 +97,8 @@ List feeds are much smaller in size as every atom feed entry contains a single r
 does not contain a row with all the table's header field names, hence you need to provide 
 the header field names expicitly when creating the parser. 
 
-To create the `ListFeed` parser use the following code
+To create the `ListFeed` parser you need to use the List feed url https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json 
+when retrieving the spreadsgeet data and the following code
 
 ```js
 var table = new ft.ListFeed(data, ["name", "street", "city"]);            
@@ -117,7 +118,7 @@ the spreadsheet url. You also need to have `feed-tables.js` included in your doc
     </head>
     <body>
         <script>
-            var URL = "&callback=dataReady";
+            var URL = "https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json&callback=dataReady";
             
             function loadData() {
                 var scp = document.createElement('script');
