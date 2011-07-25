@@ -6,8 +6,16 @@ Feed tables works for both Node.js and a client-side JavaScript.
 ### Spreadsheet data
 
 You must have a Google spreadsheet ready. For example, a spreadsheet at
-[https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json sample-data] 
-contains data about people such as a name, street, city.  
+[[https://spreadsheets.google.com/spreadsheet/ccc?key=0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc|sample-data]] 
+contains data about people such as for every person in the table there is a name, a street, and a city. 
+
+In order to use this data, you can access it
+as an atom feed in JSON format either as a list feed or a cells feed. You can access the JSON list feed 
+for the above spreadsheet at https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json 
+and the JSON cells feed at https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json.
+
+Note that in order to access the spreadsheet data at the above urls, you need to publish the spreadsheet as a Web page (in Google Spreadsheet go to 
+Share - Publish as a Web Page).
 
 ## Usage in Node.js
 
