@@ -100,14 +100,14 @@ supports both options including Cross-Origin Resource Sharing if you use XHR. Fo
 shows how to load the data using JSONP for which you need to add `callback` parameter at the end of 
 the spreadsheet url. You also need to have `feed-tables.js` included in your document.
 
-```js
+```html
 <html>
     <head>
         ...
         <script type="text/javascript" src="path/to/your/feed-tables.js"/>
     </head>
     <body>
-        <script type="text/javascript">
+        <script>
             var URL = "&callback=dataReady";
             
             function loadData() {
