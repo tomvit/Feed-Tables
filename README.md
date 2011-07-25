@@ -10,9 +10,7 @@ and a browser using JSONP. You can, however, use any other mechanism to access t
 You must have a Google spreadsheet ready. For example, a <a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc">sample data</a>
 contains data about people such as for every person in the table there is a name, a street, and a city. 
 In order to use this data, you can access it
-as an atom feed in JSON format either as a <a href="https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json">list feed</a> or a <a href="https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json">cells feed</a>. 
-
-Note that in order to access a spreadsheet data at such URLs without any authorization, 
+as an atom feed in JSON format either as a <a href="https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json">list feed</a> or a <a href="https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json">cells feed</a>. Note that in order to access a spreadsheet data at such URLs without any authorization, 
 you need to publish your spreadsheet as a Web page (in Google Spreadsheet go to Share -> Publish as a Web Page).
 
 ## Usage in Node.js
