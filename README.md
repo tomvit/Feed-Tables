@@ -56,7 +56,7 @@ var receive = function(dataUrl, dataReady) {
         }
     }, 2000);
 };
-```js
+```
 
 You can use either `CellsFeed` or `ListFeed` parser to parse the data. This depends on the format
 of the spreadsheet you want to use. Cells feeds are larger as every spreadsheet cell data 
