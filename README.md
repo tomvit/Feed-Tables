@@ -36,20 +36,20 @@ var url = require('url');
 
 var receive = function(dataUrl, dataReady) {
     var urlp = url.parse(dataUrl);
-    var service = http.createClient(urlp.port, urlp.hostname);
+    var service = http.createClient(urlp.port ? urlp.port : 80, urlp.hostname);
     var req = service.request('GET', urlp.pathname + urlp.search,
         {'host': urlp.hostname});
 
     var data = null, status = null, finished = false;
-    
+
     req.on('response', function (res) {
         var body = "";
         status = res.statusCode;
-        
+
         res.on('data', function (chunk) {
             body += chunk;
         });
-        
+
         res.on('end', function () {
             data = JSON.parse(body);
             if (!finished) {
@@ -60,7 +60,7 @@ var receive = function(dataUrl, dataReady) {
     });
 
     req.end();
-    
+
     setTimeout(function() {
         if (!finished) {
             finished = true;
@@ -87,8 +87,8 @@ receive("https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWm
         if (data) {
             var table = new ft.CellsFeed(data);            
             for (var r = 0; r < table.length; r++) {
-                var row = table.getRow(i);
-                conlose.log("name: " + row.name + ", street: " + row.street, " city: " + row.city + "\n");
+                var row = table.getRow(r);
+                console.log("name: " + row.name + ", street: " + row.street, " city: " + row.city + "\n");
             }
         } else
             console.log("Timeout while fetching the Google Spreadsheet data.");
@@ -116,7 +116,7 @@ the spreadsheet url. You also need to have `feed-tables.js` included in your doc
 <html>
     <head>
         <!-- ... -->
-        <script type="text/javascript" src="path/to/your/feed-tables.js">
+        <script type="text/javascript" src="path/to/your/feed-tables.js"></script>
     </head>
     <body>
         <script>
@@ -130,9 +130,9 @@ the spreadsheet url. You also need to have `feed-tables.js` included in your doc
             }
             
             function dataReady(data) {
-                var table = ListFeed(data, ["name", "street", "city"]);
+                var table = new ListFeed(data, ["name", "street", "city"]);
                 for (var r = 0; r < table.length; r++) {
-                    var row = table.getRow(i);
+                    var row = table.getRow(r);
                     // access data here row.name, row.street, row.city
                     // add them to your HTML code
                 }
