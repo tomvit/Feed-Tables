@@ -86,22 +86,12 @@ receive("http://spreadsheets.google.com/...",
 
 List feeds are much smaller in size as every atom feed entry contains a single row, however, this format
 does not contain a row with all the table's header field names, hence you need to provide 
-the head field names expicitly when creating the parser.
+the header field names expicitly when creating the parser. 
+
+To create the `ListFeed` parser use the following code
 
 ```js
-var ft = require('feed-tables');
-
-receive("http://spreadsheets.google.com/...",
- function(data) {
-        if (data) {
-            var table = new ft.ListFeed(data, ["name", "street", "city"]);            
-            for (var r = 0; r < table.length; r++) {
-                var row = table.getRow(i);
-                conlose.log("name: " + row.name + ", street: " + row.street, " city: " + row.city + "\n");
-            }
-        } else
-            console.log("Timeout while fetching the Google Spreadsheet data.");
-    });
+var table = new ft.ListFeed(data, ["name", "street", "city"]);            
 ```
 ## Usage in a browser
 
