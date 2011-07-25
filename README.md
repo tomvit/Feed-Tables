@@ -6,7 +6,8 @@ Feed tables works for both Node.js and a client-side JavaScript.
 ### Spreadsheet data
 
 You must have a Google spreadsheet ready. For example, a spreadsheet at
-... contains data about people such as a name, street, city. 
+[https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json sample-data] 
+contains data about people such as a name, street, city.  
 
 ## Usage in Node.js
 
@@ -103,7 +104,7 @@ the spreadsheet url. You also need to have `feed-tables.js` included in your doc
 ```html
 <html>
     <head>
-        ...
+        <!-- ... -->
         <script type="text/javascript" src="path/to/your/feed-tables.js"/>
     </head>
     <body>
@@ -126,7 +127,7 @@ the spreadsheet url. You also need to have `feed-tables.js` included in your doc
                 }
             }
         </script>
-        ...
+        <!-- ... -->
     </body>
 </html>
 ```
