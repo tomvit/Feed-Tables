@@ -1,7 +1,9 @@
 # Feed Tables
 
-Feed tables provides parsers for Google Spreadsheets data that is in a form of a talbe in cells feed or list feed formats.
-Feed tables works for both Node.js and a client-side JavaScript. 
+Feed tables provide lightweight parsers for Google Spreadsheets data available as a talbe in cells feed or list feed JSON data formats.
+Feed tables works for both Node.js and a client-side JavaScript and currently support only reading the data that has been published as 
+a Web page. Loading the data is out of the scope of this library, the sample code below shows an example of how you can load the data in Node.js 
+and a browser using JSONP. You can, however, use any other mechanism to access the data including authorization mechanisms. 
 
 ### Spreadsheet data
 
@@ -14,7 +16,7 @@ as an atom feed in JSON format either as a list feed or a cells feed. You can ac
 for the above spreadsheet at https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json 
 and the JSON cells feed at https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json.
 
-Note that in order to access the spreadsheet data at the above urls, you need to publish the spreadsheet as a Web page (in Google Spreadsheet go to 
+Note that in order to access the spreadsheet data at the above URLs, you need to publish the spreadsheet as a Web page (in Google Spreadsheet go to 
 Share - Publish as a Web Page).
 
 ## Usage in Node.js
