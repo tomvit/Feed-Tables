@@ -59,7 +59,7 @@ var receive = function(dataUrl, dataReady) {
 };
 ```
 
-### Parse the data
+### Parsing the data
 
 You can use either `CellsFeed` or `ListFeed` parser to parse the data. This depends on the format
 of the spreadsheet you want to use. Cells feeds are larger as every spreadsheet cell data 
@@ -98,26 +98,37 @@ var table = new ft.ListFeed(data, ["name", "street", "city"]);
 In a browser you can load the data either by using XMLHttpRequest or JSONP. Google spreadsheets
 supports both options including Cross-Origin Resource Sharing if you use XHR. Following code
 shows how to load the data using JSONP for which you need to add `callback` parameter at the end of 
-the spreadsheet url. 
+the spreadsheet url. You also need to have `feed-tables.js` included in your document.
 
 ```js
-var URL = "&callback=dataReady";
-
-function loadData() {
-    var scp = document.createElement('script');
-	scp.setAttribute("type","text/javascript");
-	scp.setAttribute("src", URL);	
-	document.getElementsByTagName("head")[0].appendChild(scp);	
-}
-
-function dataReady(data) {
-    var table = ListFeed(data, ["name", "street", "city"]);
-    for (var r = 0; r < table.length; r++) {
-        var row = table.getRow(i);
-        // access data here row.name, row.street, row.city
-        // add them to your HTML code
-    }
-}
+<html>
+    <head>
+        ...
+        <script type="text/javascript" src="path/to/your/feed-tables.js"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var URL = "&callback=dataReady";
+            
+            function loadData() {
+                var scp = document.createElement('script');
+            	scp.setAttribute("type","text/javascript");
+            	scp.setAttribute("src", URL);	
+            	document.getElementsByTagName("head")[0].appendChild(scp);	
+            }
+            
+            function dataReady(data) {
+                var table = ListFeed(data, ["name", "street", "city"]);
+                for (var r = 0; r < table.length; r++) {
+                    var row = table.getRow(i);
+                    // access data here row.name, row.street, row.city
+                    // add them to your HTML code
+                }
+            }
+        </script>
+        ...
+    </body>
+</html>
 ```
 
 ## License 
