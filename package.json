@@ -1,7 +1,7 @@
 {
   "name":"feed-tables",
   "author": "Tomas Vitvar <tomas@vitvar.com>",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Simple API for accessing Google Spreadsheets data as tables for Node.js and client-side JavaScript",
   "keywords": ["Goofle Spreadsheets", "server"],
   "directories": {
