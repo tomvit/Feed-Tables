@@ -1,8 +1,8 @@
 # Feed Tables
 
-Feed tables provide lightweight parsers for Google Spreadsheets data available as a talbe in cells feed or list feed JSON data formats.
-Feed tables works for both Node.js and a client-side JavaScript and currently support only reading the data that has been published as 
-a Web page. Loading the data is out of the scope of this library, the sample code below shows an example of how you can load the data in Node.js 
+Feed tables provide lightweight parsers for Google Spreadsheets data available as a table in cells feed or list feed JSON data formats.
+Feed tables work for both Node.js and a client-side JavaScript and currently support only reading the data that has been published as 
+a Web page. Loading the data is out of the scope of this library, the sample code below shows how you can load the data in Node.js 
 and a browser using JSONP. You can, however, use any other mechanism to access the data including authorization mechanisms. 
 
 ### Spreadsheet data
@@ -12,12 +12,12 @@ https://spreadsheets.google.com/spreadsheet/ccc?key=0AoooUkEfVrhldEpRekRVakVYWmJ
 contains data about people such as for every person in the table there is a name, a street, and a city. 
 
 In order to use this data, you can access it
-as an atom feed in JSON format either as a list feed or a cells feed. You can access the JSON list feed 
+as an atom feed in JSON format either as a list feed or a cells feed. You can access a JSON list feed 
 for the above spreadsheet at https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json 
-and the JSON cells feed at https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json.
+and a JSON cells feed at https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json.
 
-Note that in order to access the spreadsheet data at the above URLs, you need to publish the spreadsheet as a Web page (in Google Spreadsheet go to 
-Share - Publish as a Web Page).
+Note that in order to access a spreadsheet data at URLs similar to ones shown above without any authorization, 
+you need to publish your spreadsheet as a Web page (in Google Spreadsheet go to Share -> Publish as a Web Page).
 
 ## Usage in Node.js
 
