@@ -2,7 +2,7 @@
 
 Feed tables provide lightweight parsers for Google Spreadsheets data available as a table in cells feed or list feed JSON data formats.
 Feed tables work for both Node.js and a client-side JavaScript. Loading the data is out of the scope of this library, the sample code below shows how you can load the data in Node.js 
-and a browser using JSONP. You can, however, use any other mechanism to access the data including authorization mechanisms. 
+and in a browser by using JSONP. You can, however, use any other mechanism to access the data including authorization mechanisms. 
 
 ### Spreadsheet data
 
