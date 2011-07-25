@@ -7,7 +7,7 @@ and a browser using JSONP. You can, however, use any other mechanism to access t
 
 ### Spreadsheet data
 
-You must have a Google spreadsheet ready. For example, a "sample data":https://spreadsheets.google.com/spreadsheet/ccc?key=0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc
+You must have a Google spreadsheet ready. For example, a <a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc">sample data</a>
 contains data about people such as for every person in the table there is a name, a street, and a city. 
 
 In order to use this data, you can access it
