@@ -93,7 +93,7 @@ does not contain a row with all the table's header field names, hence you need t
 the header field names expicitly when creating the parser. 
 
 To create the `ListFeed` parser you need to use the List feed url https://spreadsheets.google.com/feeds/list/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json 
-when retrieving the spreadsgeet data and the following code
+when retrieving the spreadsheet data and the following code
 
 ```js
 var table = new ft.ListFeed(data, ["name", "street", "city"]);            
