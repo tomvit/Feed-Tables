@@ -36,7 +36,8 @@ var receive = function(dataUrl, dataReady) {
     }, 2000);
 };
 
-var ft = require('feed-tables');
+console.log(process.cwd());
+var ft = require(process.cwd() + '/lib/feed-tables.js');
 
 receive("https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWmJ2U2Z4SFBVZ0M1Nnc/od6/public/basic?alt=json",
  function(data) {
@@ -49,4 +50,5 @@ receive("https://spreadsheets.google.com/feeds/cells/0AoooUkEfVrhldEpRekRVakVYWm
         } else
             console.log("Timeout while fetching the Google Spreadsheet data.");
     });
-    
+  
+  
