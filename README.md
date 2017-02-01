@@ -100,6 +100,8 @@ var table = new ft.ListFeed(data, ["name", "street", "city"]);
 ```
 ## Usage in a browser
 
+JSFiddle example: https://jsfiddle.net/ryk74cnv/
+
 In a browser you can load the data either by using XMLHttpRequest or JSONP. Google spreadsheets
 supports both options including Cross-Origin Resource Sharing if you use XHR. Following code
 shows how to load the data using JSONP for which you need to add `callback` parameter at the end of 
